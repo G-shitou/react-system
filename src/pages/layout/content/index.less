@@ -1,0 +1,42 @@
+.layout {
+    .content{
+        .content{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background: @background;
+            padding-right:10px;
+            &.min-content{
+                padding-left:210px;
+            }
+            &.max-content{
+                padding-left:90px;
+            }
+            .tags{
+                .ant-tag-hidden{
+                    display: inline-block;
+                }
+                .ant-tag{
+                    margin-top:8px;
+                    margin-bottom:8px;
+                    font-size:13px;
+                    line-height:25px;
+                }
+            }
+            .mainContent{
+                flex:1;
+                width:100%;
+                background: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px @boxShdow;
+            }
+            .footer{
+                width:100%;
+                text-align: center;
+                line-height:30px;
+            }
+        }
+    }
+}

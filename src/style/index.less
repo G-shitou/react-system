@@ -1,0 +1,53 @@
+@import './loading.less';
+// 定义结构长度
+@headerHeight: 70px;
+@menuWidth: 200px;
+// 定义颜色
+@gray: #404040;
+@deepGray: #333333;
+@background: #ECECEC;
+@boxShdow: #D7D7D7;
+// 定义常用css
+.borderbox{
+    box-sizing: border-box;
+}
+// 通用css
+// 增删改操作按钮
+.cardButton{
+    .ant-btn{
+        padding:0 10px;
+        border-radius:7px;
+        margin:0 5px;
+    }
+    .ant-input-search{
+        padding:0 10px;
+        margin:0 5px;
+    }
+}
+// 通用表格页面
+.tableManage{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    .baseTable{
+        flex:1;
+        .ant-table-wrapper{
+            height:100%;
+            .ant-spin-nested-loading{
+                height:100%;
+                .ant-spin-container{
+                    height:100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    .ant-table {
+                        flex:1;
+                    }
+                    .ant-pagination{
+                        margin-right:30px;
+                    }
+                }
+            }
+        }
+    }
+}

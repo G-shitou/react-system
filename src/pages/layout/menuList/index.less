@@ -1,0 +1,40 @@
+.menu{
+    position: fixed;
+    top:@headerHeight;
+    left:0;
+    z-index:1;
+    height:calc(100vh - @headerHeight);
+    width:auto;
+    background: @deepGray;
+    overflow: auto;
+    ul.ant-menu-root{
+        margin-bottom:48px;
+    }
+    ul.ant-menu{
+        background: @gray;
+        li.ant-menu-item{
+            margin:0;
+            ul.ant-menu-sub{
+                background: @deepGray;
+            }
+        }
+        li.ant-menu-submenu{
+            background: @gray;
+            ul.ant-menu-sub{
+                background: @deepGray;
+            }
+        }
+    }
+    .ant-layout-sider-trigger{
+        background: @gray;
+    }
+}
+.ant-menu-submenu.ant-menu-submenu-popup.ant-menu-submenu-placement-rightTop{
+    background: @gray;
+    .ant-menu-sub{
+        background: @gray;
+    }
+    .ant-menu-vertical.ant-menu-sub{
+        min-width:100px;
+    }
+}
