@@ -8,6 +8,7 @@ import Password from '../pages/personal/password';
 import UserManage from '../pages/systemmanage/usermanage';
 import RoleManage from '../pages/systemmanage/rolemanage';
 import MenuManage from '../pages/systemmanage/menumanage';
+import Echarts from '../pages/gallery/echarts';
 
 export default class Router extends React.Component{
     render(){
@@ -31,6 +32,7 @@ export default class Router extends React.Component{
                                     <Route path='/systemmanage/usermanage' component={UserManage}></Route>
                                     <Route path='/systemmanage/rolemanage' component={RoleManage}></Route>
                                     <Route path="/systemmanage/menumanage" component={MenuManage}></Route>
+                                    <Route path="/gallery/baseEcharts" component={Echarts}></Route>
                                     <Redirect to="/home" />
                                     {/* <Route component={NoMatch} /> */}
                                 </Switch>
