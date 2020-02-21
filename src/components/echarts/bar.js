@@ -90,13 +90,21 @@ export default class Bar extends React.Component {
         };
     }
 
+    onChartClick = (params,chart) => {
+        this.props.handleClick(params);
+    }
+
     render() {
+        let onEvents = {
+            'click': this.onChartClick,
+        };
         return (
             <ReactEchartsCore
                 echarts={echarts}
                 option={this.getOption()}
                 notMerge={true}
-                lazyUpdate={true}/>
+                lazyUpdate={true}
+                onEvents={onEvents}/>
         )
     }
 }
