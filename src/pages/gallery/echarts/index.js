@@ -76,7 +76,7 @@ export default class Echarts extends React.Component {
     render() {
         return (
             <div className="echarts">
-                <Collapse defaultActiveKey={['1']} onChange={this.callback}>
+                <Collapse defaultActiveKey={['5']} onChange={this.callback}>
                     <Panel header="折线图" key="1">
                         <Row>
                             <Col span={8}>
