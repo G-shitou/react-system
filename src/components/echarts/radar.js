@@ -68,11 +68,19 @@ export default class Line extends React.Component {
         };
     }
 
+    onChartClick = (params,chart) => {
+        this.props.handleClick(params);
+    }
+
     render() {
+        let onEvents = {
+            'click': this.onChartClick,
+        };
         return (
             <ReactEchartsCore
                 echarts={echarts}
-                option={this.getOption()}/>
+                option={this.getOption()}
+                onEvents={onEvents}/>
         )
     }
 }

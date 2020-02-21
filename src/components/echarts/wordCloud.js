@@ -15,7 +15,9 @@ export default class Line extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
-        
+        this.setState({
+            option:this.getOption()
+        })
     }
 
     getOption = () => {
@@ -36,14 +38,14 @@ export default class Line extends React.Component {
                 type: 'wordCloud',
                 textStyle: {
                     normal: {
-                        color:'#61a0a8'
-                        // color: function() {
-                        //     return 'rgb(' + [
-                        //         Math.round(Math.random() * 160),
-                        //         Math.round(Math.random() * 160),
-                        //         Math.round(Math.random() * 160)
-                        //     ].join(',') + ')';
-                        // }
+                        // color:'#61a0a8'
+                        color: function() {
+                            return 'rgb(' + [
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160)
+                            ].join(',') + ')';
+                        }
                     },
                     emphasis: {
                         shadowBlur: 10,
@@ -55,11 +57,19 @@ export default class Line extends React.Component {
         };
     }
 
+    onChartClick = (params,chart) => {
+        this.props.handleClick(params);
+    }
+
     render() {
+        let onEvents = {
+            'click': this.onChartClick,
+        };
         return (
             <ReactEchartsCore
                 echarts={echarts}
-                option={this.getOption()}/>
+                option={this.state.option}
+                onEvents={onEvents}/>
         )
     }
 }
