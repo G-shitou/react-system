@@ -6,8 +6,10 @@ import Pie from '../../../components/echarts/pie';
 import Radar from '../../../components/echarts/radar';
 import Funnel from '../../../components/echarts/funnel';
 import Gauge from '../../../components/echarts/gauge';
-import WordCloud from '../../../components/echarts/wordCloud'
-import { Collapse, Row, Col } from 'antd';
+import WordCloud from '../../../components/echarts/wordCloud';
+import AirMap from '../../../components/echarts/airMap';
+import Map from '../../../components/echarts/map';
+import { Collapse, Row, Col, notification } from 'antd';
 const { Panel } = Collapse;
 
 export default class Echarts extends React.Component {
@@ -62,6 +64,15 @@ export default class Echarts extends React.Component {
         console.log(key);
     }
 
+    // charts item点击事件
+    handleClick = item => {
+        console.log(item);
+        notification.open({
+            message: '点击图例信息:',
+            description:'name:' + item.name + ';value:' + item.value
+        });
+    }
+
     render() {
         return (
             <div className="echarts">
@@ -73,7 +84,7 @@ export default class Echarts extends React.Component {
                                     title:'基础折线',
                                     x:this.state.line.x,
                                     y:this.state.line.y
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={8}>
                                 <Line option={{
@@ -82,7 +93,7 @@ export default class Echarts extends React.Component {
                                     y:this.state.line.y,
                                     isArea:true,
                                     isSmooth:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={8}>
                                 <Line option={{
@@ -90,7 +101,7 @@ export default class Echarts extends React.Component {
                                     x:this.state.line.x,
                                     y:this.state.line.y,
                                     isSmooth:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                         </Row>
                         <Row>
@@ -99,7 +110,7 @@ export default class Echarts extends React.Component {
                                     title:'多类型折线',
                                     x:this.state.line.x,
                                     y:this.state.line.stackY,
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={8}>
                                 <Line option={{
@@ -108,7 +119,7 @@ export default class Echarts extends React.Component {
                                     y:this.state.line.stackY,
                                     isSmooth:true,
                                     isArea:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                         </Row>
                     </Panel>
@@ -119,14 +130,14 @@ export default class Echarts extends React.Component {
                                     title:'柱形图',
                                     x:this.state.line.x,
                                     y:this.state.line.y
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={16}>
                                 <Bar option={{
                                     title:'多类型柱形图',
                                     x:this.state.line.x,
                                     y:this.state.line.stackY,
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                         </Row>
                         <Row>
@@ -136,7 +147,7 @@ export default class Echarts extends React.Component {
                                     x:this.state.line.x,
                                     y:this.state.line.stackY,
                                     isStack:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={16}>
                                 <Bar option={{
@@ -144,18 +155,30 @@ export default class Echarts extends React.Component {
                                     x:this.state.line.x,
                                     y:this.state.line.stackY,
                                     isStack:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                         </Row>
                     </Panel>
-                    <Panel header="饼图，圆环，词云" key="3">
+                    <Panel header="地图" key="3">
+                        <Row>
+                            <Col span={12}>
+                                <AirMap option={{
+                                }} handleClick={this.handleClick}/>
+                            </Col>
+                            <Col span={12}>
+                                <Map option={{
+                                }} handleClick={this.handleClick}/>
+                            </Col>
+                        </Row>
+                    </Panel>
+                    <Panel header="饼图，圆环，词云" key="4">
                         <Row>
                             <Col span={8}>
                                 <Pie option={{
                                     title:'饼图',
                                     x:this.state.pie.x,
                                     y:this.state.pie.y
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={8}>
                                 <Pie option={{
@@ -163,17 +186,17 @@ export default class Echarts extends React.Component {
                                     x:this.state.pie.x,
                                     y:this.state.pie.y,
                                     isRing:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={8}>
                                 <WordCloud option={{
                                     title:'词云',
                                     data:this.state.pie.y
-                                }}></WordCloud>
+                                }} handleClick={this.handleClick}></WordCloud>
                             </Col>
                         </Row>
                     </Panel>
-                    <Panel header="雷达图，漏斗图，仪表盘" key="4">
+                    <Panel header="雷达图，漏斗图，仪表盘" key="5">
                         <Row>
                             <Col span={8}>
                                 <Radar option={{
@@ -182,20 +205,20 @@ export default class Echarts extends React.Component {
                                     data:this.state.radar.data,
                                     indicator:this.state.radar.indicator,
                                     isCircle:true
-                                }} />
+                                }} handleClick={this.handleClick}/>
                             </Col>
                             <Col span={8}>
                                 <Funnel option={{
                                     title:'漏斗图',
                                     type:this.state.pie.x,
                                     data:this.state.pie.y
-                                }}></Funnel>
+                                }} handleClick={this.handleClick}></Funnel>
                             </Col>
                             <Col span={8}>
                                 <Gauge option={{
                                     title:'仪表盘',
                                     data:this.state.gauge.data
-                                }}></Gauge>
+                                }} handleClick={this.handleClick}></Gauge>
                             </Col>
                         </Row>
                     </Panel>
