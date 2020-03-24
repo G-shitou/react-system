@@ -34,7 +34,6 @@ export default class Router extends React.Component{
                                     <Route path='/systemmanage/rolemanage' component={RoleManage}></Route>
                                     <Route path="/systemmanage/menumanage" component={MenuManage}></Route>
                                     <Route path="/gallery/baseEcharts" component={Echarts}></Route>
-                                    <Route path="/screen/echarts" component={EchartsScreen}></Route>
                                     <Redirect to="/home" />
                                     {/* <Route component={NoMatch} /> */}
                                 </Switch>
