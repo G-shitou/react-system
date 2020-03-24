@@ -82,7 +82,7 @@ class MenuList extends React.Component {
             }
             return (
                 <Menu.Item key={item.path} title={item.title}>
-                    <Link to={item.path}>
+                    <Link to={item.path} target={item.target}>
                         {item.icon && <Icon type={item.icon}></Icon>}
                         <span>{item.title}</span>
                     </Link>

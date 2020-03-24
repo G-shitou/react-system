@@ -9,7 +9,7 @@ import UserManage from '../pages/systemmanage/usermanage';
 import RoleManage from '../pages/systemmanage/rolemanage';
 import MenuManage from '../pages/systemmanage/menumanage';
 import Echarts from '../pages/gallery/echarts';
-
+import EchartsScreen from '../pages/screen/echartsScreen';
 export default class Router extends React.Component{
     render(){
         return (
@@ -23,6 +23,7 @@ export default class Router extends React.Component{
                             </Common>
                         }
                         /> */}
+                        <Route exact path="/screen/echarts" component={EchartsScreen}></Route>
                         <Route path="/" render={()=>
                             <Admin>
                                 <Switch>
@@ -33,6 +34,7 @@ export default class Router extends React.Component{
                                     <Route path='/systemmanage/rolemanage' component={RoleManage}></Route>
                                     <Route path="/systemmanage/menumanage" component={MenuManage}></Route>
                                     <Route path="/gallery/baseEcharts" component={Echarts}></Route>
+                                    <Route path="/screen/echarts" component={EchartsScreen}></Route>
                                     <Redirect to="/home" />
                                     {/* <Route component={NoMatch} /> */}
                                 </Switch>

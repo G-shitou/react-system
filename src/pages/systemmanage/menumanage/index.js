@@ -273,6 +273,20 @@ class MenuInfo extends React.Component {
                             })(<Input placeholder="请输入菜单路由" disabled={type==='detail' ? true : false}/>)
                         }
                     </Form.Item>
+                    <Form.Item label="组件">
+                        {
+                            getFieldDecorator('component', {
+                                initialValue: menuInfo.component
+                            })(<Input placeholder="请输入菜单对应组件" disabled={type==='detail' ? true : false}/>)
+                        }
+                    </Form.Item>
+                    <Form.Item label="打开页面方式">
+                        {
+                            getFieldDecorator('target', {
+                                initialValue: menuInfo.target
+                            })(<Input placeholder="请输入打开也买你方式" disabled={type==='detail' ? true : false}/>)
+                        }
+                    </Form.Item>
                     {
                         this.props.isShow && <Form.Item wrapperCol={{ span: 4, offset: 11 }}>
                             <Button type="primary" htmlType="submit" className="login-form-button">
