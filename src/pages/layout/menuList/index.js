@@ -25,7 +25,7 @@ class MenuList extends React.Component {
             });
             // 获取当前路由
             let currentKey = window.location.hash.replace(/#|\?.*$/g,'');
-            if(currentKey !== '/'){
+            if(currentKey !== '/' && currentKey !== '/screen/echarts'){
                 const tagNode = this.searchMenuNode(this.state.menus,currentKey)[0];
                 // 事件派发
                 const { dispatch } = this.props;
@@ -48,7 +48,7 @@ class MenuList extends React.Component {
 
     // 点击菜单
     handleClick = ({item,key}) => {
-        if(key === this.props.currentKey){
+        if(key === this.props.currentKey || key === '/screen/echarts'){
             return false;
         }
         // 事件派发，自动调用reducer，通过reducer保存到store对象中

@@ -54,7 +54,7 @@ class content extends React.Component {
                 <div className="mainContent">
                     {this.props.children}
                 </div>
-                <div className='footer'>欢迎！ 技术栈 : react + react-router4.x + redux4.x + axios + antD + less + echarts + D3 + fastmock Mock平台</div> 
+                <div className='footer'>欢迎！ 技术栈 : react + react-router4.x + redux4.x + axios + antD + less + echarts + fastmock Mock平台</div> 
             </Content>
         )
     }
